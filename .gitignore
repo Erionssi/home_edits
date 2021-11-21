@@ -1,0 +1,5 @@
+*.o
+*.so
+run_test
+a.out
+*.a
