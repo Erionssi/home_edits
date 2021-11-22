@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:46:53 by jturunen          #+#    #+#             */
-/*   Updated: 2021/11/22 11:43:42 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/11/22 12:56:34 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,21 @@
 #include <stdio.h>
 #include <ctype.h>
 
-void	owntest(void)
+int	main(void)
+{
+	char	**tab1;
+	int		i;
+
+	ft_putchar('\n');
+	i = 0;
+	tab1 = ft_split("ensimmainen\0toka\0kolmas\0neljas\0viides\0kuudes", '\0');
+	while (i < 5)
+	{
+		printf("ft_strsplit string %d : %s\n", i, tab1[i]);
+		i++;
+	}
+}
+/*void	owntest(void)
 {
 	const char	*str1;
 	char		str2[256];
@@ -72,14 +86,14 @@ int	main(void)
 	printf("strcmp %d\n", strcmp("right", "wrong"));
 	printf("strcmp %d\n", strcmp(cmp1, cmp2));
 //	memmove(NULL, NULL, 1);
-//	memcpy(NULL, NULL, 1);
+//	memcpy(NULL, NULL, 1);*/
 	/*printf("memmove nul ja literal ja numero \n");		
 	memmove(NULL, "fuckthisshit", 10);					
 	printf("memcpy nul ja nul ja numero \n");			
 	printf("memcpy nul ja literal ja numero \n");		
 	memcpy(NULL, "notfuckingshithuh", 10);				
 	printf("nul ja literal ja numero meni lapi \n");*/
-	printf("strdup str1 to new: %s\n", strdup(str1));
+/*	printf("strdup str1 to new: %s\n", strdup(str1));
 	printf("strcat test: %s\n", strcat(str2, cmp2));
 	return (0);
-}
+}*/

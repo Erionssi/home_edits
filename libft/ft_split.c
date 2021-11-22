@@ -6,28 +6,72 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 14:22:18 by jturunen          #+#    #+#             */
-/*   Updated: 2021/11/22 11:47:06 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/11/22 13:31:09 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*static unsigned int	c_strlen(char const *s, char c)
+/*static unsigned int	ft_len(char const *s, char c)
 {
+	unsigned int	count;
 	unsigned int	i;
-	unsigned int	len;
-	
+
+	count = 0;
 	i = 0;
-	len = 0;
-	while (s[i] != '\0' && s[i] != c)
-	{	
-		i++;
-		len++;
+	while (s[i])
+	{
+		while (s[i] == c && s[i])
+			i++;
+		if (!s[i])
+			return (count);
+		count++;
+		while (s[i] != c && s[i])
+			i++;
 	}
-	return (len);
+	return (count);
 }*/
 
-static char	*c_strdup(const char *s, int start, int finish)
+static unsigned int	c_strlen(char const *s, char c)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s[i] != '\0' && s[i] != c)
+		i++;
+	return (i);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char			**tab;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	start;
+
+	if (!s)
+		return (NULL);
+	tab = (char **)malloc(sizeof(char *) * c_strlen(s, c) + sizeof(char));
+	if (!tab)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		while (s[i] == c && s[i])
+			i++;
+		start = i;
+		if (!s[i])
+			break ;
+		while (s[i] != c && s[i])
+			i++;
+		tab[j++] = ft_strsub(s, start, i - start);
+	}
+	tab[j] = 0;
+	return (tab);
+}
+
+/*static char	*c_strdup(const char *s, int start, int finish)
 {
 	char			*str;
 	unsigned int	i;
@@ -70,8 +114,9 @@ char	**ft_split(const char *s, char c)
 	unsigned int	j;
 	char			**tab;
 
-	tab = malloc(sizeof(char *) * (word_count(s, c) + 1));
-	if (!s || !tab)
+	if (!s)
+		return (NULL);
+	if (!(tab = malloc(sizeof(char *) * (word_count(s, c) + 1))))
 		return (NULL);
 	i = 0;
 	j = 0;
@@ -89,7 +134,7 @@ char	**ft_split(const char *s, char c)
 	}
 	tab[j] = 0;
 	return (tab);
-}
+}*/
 
 /*char	**ft_split(const char *s, char c)
 {
