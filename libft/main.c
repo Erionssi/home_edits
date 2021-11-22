@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:46:53 by jturunen          #+#    #+#             */
-/*   Updated: 2021/11/18 11:18:29 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/11/22 11:43:42 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	owntest(void)
 	char		str2[256];
 	const char	*cmp1;
 	const char	*cmp2;
+	char		**tab1;
+	int			i;
 
 	str1 = "jou jou";
 	cmp1 = "right";
@@ -44,6 +46,14 @@ void	owntest(void)
 	ft_putnbr(ft_isalnum('2'));
 	ft_putnbr(ft_isalnum('+'));
 	ft_putnbr(ft_isalnum('s'));
+	ft_putchar('\n');
+	i = 0;
+	tab1 = ft_split("\0aa\0bb", '\0');
+	while (i < 2)
+	{
+		printf("ft_strsplit string %d : %s\n", 1, tab1[i]);
+		i++;
+	}
 }
 
 int	main(void)
