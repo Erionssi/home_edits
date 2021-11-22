@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 14:22:18 by jturunen          #+#    #+#             */
-/*   Updated: 2021/11/22 13:31:09 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/11/22 14:18:11 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static unsigned int	c_strlen(char const *s, char c)
 	return (i);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_strsplit(char const *s, char c)
 {
 	char			**tab;
 	unsigned int	i;
@@ -107,7 +107,7 @@ static unsigned int	word_count(char const *s, char c)
 	return (i);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_strsplit(const char *s, char c)
 {
 	int				start;
 	unsigned int	i;
@@ -136,7 +136,7 @@ char	**ft_split(const char *s, char c)
 	return (tab);
 }*/
 
-/*char	**ft_split(const char *s, char c)
+/*char	**ft_strsplit(const char *s, char c)
 {
 	char	**tab;
 	int		words;
