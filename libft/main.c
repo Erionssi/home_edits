@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:46:53 by jturunen          #+#    #+#             */
-/*   Updated: 2021/11/22 18:00:57 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/11/22 18:47:14 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(void)
 	size = ft_strlen(data) + 1;
 	test = ft_lstnew(data, size);
 	printf("ft_lstnew data is: %s\n", (char *)test->content);
-	ft_putnbr(size);
+	ft_putnbr((int)size);
 	ft_putchar('\n');
 	i = 0;
 	tab1 = ft_strsplit("123456789\0toka\0kolmas\0neljas\0viides\0kuudes", '\0');

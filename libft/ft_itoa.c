@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 14:31:10 by jturunen          #+#    #+#             */
-/*   Updated: 2021/11/22 15:37:36 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/11/22 18:46:14 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_itoa(int n)
 	*(str + size--) = '\0';
 	while (nbr > 0)
 	{
-		*(str + size--) = nbr % 10 + '0';
+		*(str + size--) = (char)(nbr % 10 + '0');
 		nbr = nbr / 10;
 	}
 	if (size == 0 && str[1] == '\0')
