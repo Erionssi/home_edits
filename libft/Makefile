@@ -6,7 +6,7 @@
 #    By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 16:12:58 by jturunen          #+#    #+#              #
-#    Updated: 2021/11/22 14:18:53 by jturunen         ###   ########.fr        #
+#    Updated: 2021/11/22 17:04:24 by jturunen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ FUNCTIONS := ft_putchar ft_strlen ft_putstr ft_strcmp ft_strcpy ft_strchr \
 	ft_isdigit ft_isalnum ft_isascii ft_isprint ft_toupper ft_tolower \
 	ft_memalloc ft_memdel ft_strnew ft_strdel ft_strclr ft_striter ft_striteri \
 	ft_strmap ft_strmapi ft_strequ ft_strnequ ft_strsub ft_strjoin ft_strtrim \
-	ft_strsplit
+	ft_strsplit ft_itoa ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd \
+	ft_lstnew
  
 OBJS := $(foreach obj, $(FUNCTIONS), $(addsuffix .o, $(obj)))
 SRCS := $(foreach src, $(FUNCTIONS), $(addsuffix .c, $(src)))
