@@ -6,13 +6,13 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 14:22:18 by jturunen          #+#    #+#             */
-/*   Updated: 2021/11/22 14:18:11 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/11/29 12:31:11 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*static unsigned int	ft_len(char const *s, char c)
+static unsigned int	c_strlen(char const *s, char c)
 {
 	unsigned int	count;
 	unsigned int	i;
@@ -30,9 +30,9 @@
 			i++;
 	}
 	return (count);
-}*/
+}
 
-static unsigned int	c_strlen(char const *s, char c)
+/*static unsigned int	c_strlen(char const *s, char c)
 {
 	unsigned int	i;
 
@@ -40,7 +40,7 @@ static unsigned int	c_strlen(char const *s, char c)
 	while (s[i] != '\0' && s[i] != c)
 		i++;
 	return (i);
-}
+}*/
 
 char	**ft_strsplit(char const *s, char c)
 {
