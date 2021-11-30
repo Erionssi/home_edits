@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:46:53 by jturunen          #+#    #+#             */
-/*   Updated: 2021/11/29 16:07:30 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/11/30 15:08:41 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,34 @@
 #include <stdio.h>
 #include <ctype.h>
 
+static void    display_str(t_list *list_el)
+{
+    ft_putstr((char *)list_el->content);
+    ft_putchar('\n');
+}
+
+static void    ft_display_list_str(t_list *list)
+{
+    ft_lstiter(list, &display_str);
+}
+
 int	main(void)
 {
+    t_list  *new_el1;
+    t_list  *new_el2;
+    t_list  *new_el3;
+
+    new_el1 = ft_lstnew("hello thereee", 20);
+    new_el2 = ft_lstnew("the angel from my nightmare", 30);
+    new_el3 = ft_lstnew(NULL, 45);
+    ft_lstadd(&new_el3, new_el2);
+    ft_lstadd(&new_el2, new_el1);
+	ft_display_list_str(new_el1);
 //	const char	*data;
-	char		**tab1;
-	int			i;
+//	char		**tab1;
+//	char		**tab2;
+//	char		**tab3;
+//	int			i;
 //	size_t		size;
 //	t_list		*test;
 
@@ -28,13 +51,17 @@ int	main(void)
 //	printf("ft_lstnew data is: %s\n", (char *)test->content);
 //	ft_putnbr((int)size);
 //	ft_putchar('\n');
-	i = 0;
-	tab1 = ft_strsplit("123456789\0toka\0kolmas\0neljas\0viides\0kuudes", '\0');
-	while (i < 2)
-	{
-		printf("ft_strsplit string %d : %s\n", i, tab1[i]);
-		i++;
-	}
+//	i = 0;
+//	tab1 = ft_strsplit("123456789\0toka\0kolmas\0neljas\0viides\0kuudes", '\0');
+//	tab2 = ft_strsplit("", '\0');
+//	tab3 = ft_strsplit(NULL, '\0');
+//	while (i < 2)
+//	{
+//		printf("ft_strsplit string %d : %s\n", i, tab1[i]);
+//		printf("ft_strsplit2 string %d : %s\n", i, tab2[i]);
+	//	printf("ft_strsplit3 string %d : %s\n", i, tab3[i]);
+//		i++;
+//	}
 }
 /*void	owntest(void)
 {
