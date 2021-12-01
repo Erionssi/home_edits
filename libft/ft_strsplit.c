@@ -6,11 +6,22 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 14:22:18 by jturunen          #+#    #+#             */
-/*   Updated: 2021/12/01 11:55:05 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/12/01 14:37:53 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	c_free_tab(int j, char **tab)
+{
+	while (j >= 0)
+	{
+		if (tab[j] != NULL)
+			free(tab[j]);
+		j--;
+	}
+	free(tab);
+}
 
 static unsigned int	c_strlen(char const *s, char c)
 {
@@ -32,18 +43,12 @@ static unsigned int	c_strlen(char const *s, char c)
 	return (count);
 }
 
-char	**ft_strsplit(char const *s, char c)
+static char	**c_split(const char *s, char c, char **tab)
 {
-	char			**tab;
 	unsigned int	i;
 	unsigned int	j;
 	unsigned int	start;
 
-	if (!s)
-		return (NULL);
-	tab = (char **)malloc(sizeof(char *) * c_strlen(s, c) + sizeof(char));
-	if (!tab)
-		return (NULL);
 	i = 0;
 	j = 0;
 	while (s[i])
@@ -56,7 +61,25 @@ char	**ft_strsplit(char const *s, char c)
 		while (s[i] != c && s[i])
 			i++;
 		tab[j++] = ft_strsub(s, start, i - start);
+		if (!tab[j - 1])
+		{
+			c_free_tab((int)j, tab);
+			return (NULL);
+		}
 	}
 	tab[j] = 0;
+	return (tab);
+}
+
+char	**ft_strsplit(char const *s, char c)
+{
+	char			**tab;
+
+	if (!s)
+		return (NULL);
+	tab = (char **)malloc(sizeof(char *) * c_strlen(s, c) + sizeof(char));
+	if (!tab)
+		return (NULL);
+	tab = c_split(s, c, tab);
 	return (tab);
 }

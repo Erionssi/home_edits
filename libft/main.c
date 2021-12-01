@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:46:53 by jturunen          #+#    #+#             */
-/*   Updated: 2021/12/01 11:59:31 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/12/01 14:36:33 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-static void	display_str(t_list *list_el)
+/*static void	display_str(t_list *list_el)
 {
 	ft_putstr((char *)list_el->content);
 	ft_putchar('\n');
@@ -37,10 +37,12 @@ int	main(void)
 	ft_lstadd(&new_el3, new_el2);
 	ft_lstadd(&new_el2, new_el1);
 	ft_display_list_str(new_el1);
-}
-	/*const char	*data;
-	char		**tab1;
-	char		**tab2;
+}*/
+int	main(void)
+{
+	const char	*data;
+//	char		**tab1;
+//	char		**tab2;
 	char		**tab3;
 	int			i;
 	size_t		size;
@@ -53,18 +55,18 @@ int	main(void)
 	ft_putnbr((int)size);
 	ft_putchar('\n');
 	i = 0;
-	tab1 = ft_strsplit("123456789\0toka\0kolmas\0neljas\0viides\0kuudes", '\0');
-	tab2 = ft_strsplit("", '\0');
-	tab3 = ft_strsplit(NULL, '\0');
-	while (i < 2)
+//	tab1 = ft_strsplit("123456789\0toka\0kolmas\0neljas\0viides\0kuudes", '\0');
+//	tab2 = ft_strsplit("", '\0');
+	tab3 = ft_strsplit("***lol**what******is*this***hehee*****", '*');
+	while (i < 5)
 	{
-		printf("ft_strsplit string %d : %s\n", i, tab1[i]);
-		printf("ft_strsplit2 string %d : %s\n", i, tab2[i]);
+//		printf("ft_strsplit string %d : %s\n", i, tab1[i]);
+//		printf("ft_strsplit2 string %d : %s\n", i, tab2[i]);
 		printf("ft_strsplit3 string %d : %s\n", i, tab3[i]);
 		i++;
 	}
 }
-void	owntest(void)
+/*void	owntest(void)
 {
 	const char	*str1;
 	char		str2[256];
