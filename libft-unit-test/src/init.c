@@ -6,7 +6,7 @@
 /*   By: alelievr <alelievr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created  2015/11/17 17:30:13 by alelievr          #+#    #+#             */
-/*   Updated: 2021/11/22 22:13:09 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/12/01 12:06:11 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ t_libft_test	fun_test_table[] = {
 	{"ft_strchr", test_ft_strchr, 1, 1},
 	{"ft_strrchr", test_ft_strrchr, 1, 1},
 	{"ft_strncmp", test_ft_strncmp, 1, 1},
-	{"ft_strlcpy", test_ft_strlcpy, 1, 1},
+//	{"ft_strlcpy", test_ft_strlcpy, 1, 1},
 	{"ft_strlcat", test_ft_strlcat, 1, 1},
 	{"ft_strnstr", test_ft_strnstr, 1, 1},
 	{"ft_atoi", test_ft_atoi, 1, 1},
-	{"ft_calloc", test_ft_calloc, 1, 1},
+//	{"ft_calloc", test_ft_calloc, 1, 1},
 	{"ft_strdup", test_ft_strdup, 1, 1},
 
 	{"ft_strsub", test_ft_strsub, 2, 1}, 

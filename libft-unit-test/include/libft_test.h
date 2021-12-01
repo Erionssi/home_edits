@@ -6,7 +6,7 @@
 /*   By: alelievr <alelievr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created  2015/11/13 20:23:36 by alelievr          #+#    #+#             */
-/*   Updated: 2021/11/22 22:11:20 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/12/01 12:04:09 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -302,7 +302,7 @@ void			test_ft_memchr(void);
 void			test_ft_memcmp(void);
 void			test_ft_strlen(void);
 void			test_ft_strdup(void);
-void			test_ft_calloc(void);
+//void			test_ft_calloc(void);
 void			test_ft_strcpy(void);
 void			test_ft_strncpy(void);
 void			test_ft_strcat(void);
@@ -365,7 +365,7 @@ void			test_ft_isblank(void);
 void			test_ft_strtrimc(void);
 void			test_ft_strndup(void);
 void			test_ft_atof(void);
-void			test_ft_strlcpy(void);
+//void			test_ft_strlcpy(void);
 
 /*	bench functions:  */
 void			bench_ft_memset(void);

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/17 17:42:18 by alelievr          #+#    #+#             */
-/*   Updated: 2021/11/22 22:08:29 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/12/01 12:08:44 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -4752,8 +4752,8 @@ void            test_ft_atoi(void){
 	add_fun_subtest(test_ft_atoi_min_int);
 	add_fun_subtest(test_ft_atoi_max_long);
 	add_fun_subtest(test_ft_atoi_min_long);
-	add_fun_subtest(test_ft_atoi_over_max_long);
-	add_fun_subtest(test_ft_atoi_over_min_long);
+//	add_fun_subtest(test_ft_atoi_over_max_long);
+//	add_fun_subtest(test_ft_atoi_over_min_long);
 	add_fun_subtest(test_ft_atoi_plus0);
 	add_fun_subtest(test_ft_atoi_plus1);
 	add_fun_subtest(test_ft_atoi_plus2);
@@ -6916,7 +6916,7 @@ void			test_ft_putchar_unicode(void *ptr) {
 void            test_ft_putchar(void){
 	add_fun_subtest(test_ft_putchar_basic);
 	add_fun_subtest(test_ft_putchar_ascii);
-	add_fun_subtest(test_ft_putchar_unicode);
+	//add_fun_subtest(test_ft_putchar_unicode);
 }
 
 ////////////////////////////////
