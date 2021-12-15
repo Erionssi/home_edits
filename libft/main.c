@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:46:53 by jturunen          #+#    #+#             */
-/*   Updated: 2021/12/01 14:36:33 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/12/15 12:23:42 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	main(void)
 int	main(void)
 {
 	const char	*data;
-//	char		**tab1;
-//	char		**tab2;
+	char		**tab1;
+	char		**tab2;
 	char		**tab3;
 	int			i;
 	size_t		size;
@@ -55,13 +55,13 @@ int	main(void)
 	ft_putnbr((int)size);
 	ft_putchar('\n');
 	i = 0;
-//	tab1 = ft_strsplit("123456789\0toka\0kolmas\0neljas\0viides\0kuudes", '\0');
-//	tab2 = ft_strsplit("", '\0');
+	tab1 = ft_strsplit("123456789\0toka\0kolmas\0neljas\0viides\0kuudes", '\0');
+	tab2 = ft_strsplit("", '\0');
 	tab3 = ft_strsplit("***lol**what******is*this***hehee*****", '*');
-	while (i < 5)
+	while (i < 1)
 	{
-//		printf("ft_strsplit string %d : %s\n", i, tab1[i]);
-//		printf("ft_strsplit2 string %d : %s\n", i, tab2[i]);
+		printf("ft_strsplit string %d : %s\n", i, tab1[i]);
+		printf("ft_strsplit2 string %d : %s\n", i, tab2[i]);
 		printf("ft_strsplit3 string %d : %s\n", i, tab3[i]);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 14:22:18 by jturunen          #+#    #+#             */
-/*   Updated: 2021/12/01 14:37:53 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/12/15 12:17:48 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char	**c_split(const char *s, char c, char **tab)
 			return (NULL);
 		}
 	}
-	tab[j] = 0;
+	tab[j] = NULL;
 	return (tab);
 }
 
@@ -77,7 +77,7 @@ char	**ft_strsplit(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	tab = (char **)malloc(sizeof(char *) * c_strlen(s, c) + sizeof(char));
+	tab = (char **)malloc(sizeof(char *) * c_strlen(s, c) + sizeof(char *));
 	if (!tab)
 		return (NULL);
 	tab = c_split(s, c, tab);
