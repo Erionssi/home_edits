@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:46:53 by jturunen          #+#    #+#             */
-/*   Updated: 2021/12/15 12:23:42 by jturunen         ###   ########.fr       */
+/*   Updated: 2021/12/17 11:00:57 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,29 @@ int	main(void)
 }*/
 int	main(void)
 {
-	const char	*data;
+//	const char	*data;
 	char		**tab1;
-	char		**tab2;
-	char		**tab3;
+	//char		**tab2;
+	//char		**tab3;
 	int			i;
-	size_t		size;
-	t_list		*test;
+//	size_t		size;
+//	t_list		*test;
 
-	data = "1 3 5 7,9";
-	size = ft_strlen(data) + 1;
-	test = ft_lstnew(data, size);
-	printf("ft_lstnew data is: %s\n", (char *)test->content);
-	ft_putnbr((int)size);
-	ft_putchar('\n');
+//	data = "1 3 5 7,9";
+//	size = ft_strlen(data) + 1;
+//	test = ft_lstnew(data, size);
+//	printf("ft_lstnew data is: %s\n", (char *)test->content);
+//	ft_putnbr((int)size);
+//	ft_putchar('\n');
 	i = 0;
-	tab1 = ft_strsplit("123456789\0toka\0kolmas\0neljas\0viides\0kuudes", '\0');
-	tab2 = ft_strsplit("", '\0');
-	tab3 = ft_strsplit("***lol**what******is*this***hehee*****", '*');
-	while (i < 1)
+	tab1 = ft_strsplit("eka\0toka\0kolmas\0neljas\0viides\0kuudes", '\0');
+	//tab2 = ft_strsplit("", '\0');
+	//tab3 = ft_strsplit("***lol**what******is*this***hehee*****", '*');
+	while (i < 2)
 	{
 		printf("ft_strsplit string %d : %s\n", i, tab1[i]);
-		printf("ft_strsplit2 string %d : %s\n", i, tab2[i]);
-		printf("ft_strsplit3 string %d : %s\n", i, tab3[i]);
+	//	printf("ft_strsplit2 string %d : %s\n", i, tab2[i]);
+	//	printf("ft_strsplit3 string %d : %s\n", i, tab3[i]);
 		i++;
 	}
 }
