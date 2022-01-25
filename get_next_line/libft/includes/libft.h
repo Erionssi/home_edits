@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:38:19 by jturunen          #+#    #+#             */
-/*   Updated: 2022/01/25 15:06:36 by jturunen         ###   ########.fr       */
+/*   Updated: 2022/01/25 15:25:28 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	ft_strlen(const char *s);
 void	ft_putstr(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strcpy(char *dst, const char *src);
-char	*ft_strchr(const char *s, int c);
+char	*ft_strchr(char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_atoi(const char *str);
 void	ft_putnbr(int n);
