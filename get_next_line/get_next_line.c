@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:44:04 by jturunen          #+#    #+#             */
-/*   Updated: 2022/01/25 18:09:46 by jturunen         ###   ########.fr       */
+/*   Updated: 2022/01/25 18:23:47 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static char	*get_line(char *save)
 {
-	size_t		i;
+	size_t	i;
 	char	*line;
 
 	i = 0;
