@@ -1,0 +1,119 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/17 13:44:04 by jturunen          #+#    #+#             */
+/*   Updated: 2022/01/20 09:37:57 by jturunen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
+#include "libft.h"
+
+static char		ft_populator(char *chptr, char **line, char **str)
+{
+	char	*memory;
+
+	*line = ft_strsub(*str, 0, ft_strlen(*str) - ft_strlen(chptr));
+	memory = *str;
+	*str = ft_strsub(*str, ft_strlen(*line) + 1, ft_strlen(*str));
+	ft_strdel(&memory);
+	return (1);
+}
+
+static char		ft_terminator(char **line, char **str)
+{
+	if (ft_strlen(*str) > 0)
+	{
+		*line = ft_strdup(*str);
+		ft_strdel(str);
+		return (1);
+	}
+	return (0);
+}
+
+int				get_next_line(const int fd, char **line)
+{
+	ssize_t			ret;
+	static char		*str = NULL;
+	char			buff[BUFF_SIZE + 1];
+	char			*memory;
+	char			*chptr;
+
+	if (fd < 0 || !line)
+		return (-1);
+	memory = NULL;
+	if ((chptr = ft_strchr(str, '\n')))
+		return (ft_populator(chptr, line, &str));
+	while ((ret = read(fd, buff, BUFF_SIZE)) != -1)
+	{
+		buff[ret] = '\0';
+		if (ret == 0)
+			break ;
+		memory = str;
+		str = ft_strjoin(str, buff);
+		ft_strdel(&memory);
+		if ((chptr = ft_strchr(buff, '\n')))
+			return (ft_populator(chptr, line, &str));
+	}
+	if (ret == -1)
+		return (-1);
+	return (ft_terminator(line, &str));
+}
+
+/* woops
+function that returns a line read from a file descriptor
+line is a succession of characters that end with '\n' (ascii 0x0a) or with EOF
+
+must be prototyped as:
+int	get_next_line(const int fd, char **line);
+
+first parameter is the filedescriptor that will be used to read
+second parameter is the address of a pointer to a character that will be used
+to save the line read from the FD
+
+return value can be 1, 0 or -1, has been read, when the reading has been
+completed, or if error occured respectively
+
+function has to return its result WITHOUT '\n'!!!
+
+calling your function in a loop will then allow you to read the text available
+on a FD one line at a time until end of the text, no matter the size of either
+the text or one of its lines.
+
+make sure that your function behaves well when it reads from a file,
+standard output, redirection etc.
+
+in header file you must have at least the prototype of the function,
+macro that allows to choose the size of the reading buffer for the read funct.
+This value will be modded during defence, IT MUST BE NAMED as BUFF_SIZE
+For example: #define BUFF_SIZE 32
+
+make sure to test it with different buff_size:s like 9999, 1, 1000000 etc
+
+we consider that get_next_line function has undefined behaviour if,
+between two calls, the same FD designs two distinct files although the reading
+from the first file was not completed.
+
+we consider also taht a call to lseek(2) will never take place between two calls
+ of the function on the same FD
+
+Finally we consider that get_next_line has an undefined behaviour when reading 
+from a binary file. However you can make this behaviour coherent.
+
+Global variables are forbidden.
+
+Static variables are allowed.
+
+BONUS
+
+Get it working with single static variable
+
+To be able to manage multiple file descriptor with your get_next_line
+for example, if the FD 3, 4, and 5 are accessible for reading, then you can call
+get_next_line once on 3,once on 4, once again on 3 then once on 5 etc.
+without losing the readin thread on each of the FD.
+*/
