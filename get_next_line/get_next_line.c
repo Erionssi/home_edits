@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:44:04 by jturunen          #+#    #+#             */
-/*   Updated: 2022/01/25 17:29:10 by jturunen         ###   ########.fr       */
+/*   Updated: 2022/01/25 18:09:46 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static char	*get_line(char *save)
 {
-	int		i;
+	size_t		i;
 	char	*line;
 
 	i = 0;
@@ -38,8 +38,8 @@ static char	*get_line(char *save)
 
 static char	*get_save(char *save)
 {
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 	char	*str;
 
 	i = 0;
@@ -66,8 +66,8 @@ static char	*get_save(char *save)
 
 static char	*read_and_save(int fd, char *save)
 {
-	char	*buff;
-	int		file_read;
+	char		*buff;
+	long int	file_read;
 
 	file_read = 1;
 	buff = malloc(sizeof(char) * (BUFF_SIZE + 1));
