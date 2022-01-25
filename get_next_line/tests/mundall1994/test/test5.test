@@ -221,11 +221,11 @@ static void	end_of_line_no_new_line_test(void)
 	free(line);
 
 	/* Read new line */
-	//printf("line: %s\n", line);
-	//printf("fd: %d\n", p[0]);
+//	printf("line: %s\n", line);
+//	printf("fd: %d\n", p[0]);
 	gnl_ret = get_next_line(p[0], &line);
-	//printf("return: %d\n", gnl_ret);
-	//printf("line: %s\n", line);
+//	printf("return: %d\n", gnl_ret);
+//	printf("line: %s\n", line);
 	print_result(gnl_ret);
 	assert(gnl_ret == 0);
 	printf("Expected: [(null)]/[]	output: [%s]\n", line);
