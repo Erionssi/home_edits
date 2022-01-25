@@ -6,14 +6,14 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:44:04 by jturunen          #+#    #+#             */
-/*   Updated: 2022/01/25 16:34:07 by jturunen         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:29:10 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "libft.h"
 
-static char *get_line(char *save)
+static char	*get_line(char *save)
 {
 	int		i;
 	char	*line;
@@ -36,7 +36,7 @@ static char *get_line(char *save)
 	return (line);
 }
 
-static char *get_save(char *save)
+static char	*get_save(char *save)
 {
 	int		i;
 	int		j;
@@ -63,31 +63,40 @@ static char *get_save(char *save)
 	free(save);
 	return (str);
 }
- 
-int	get_next_line(const int fd, char **line)
-{
-	static char	*save[257];
-	char		*buff;
-	int			reading;
 
-	reading = 1;
-	if (fd < 0 || !line || BUFF_SIZE <= 0 || fd > 256)
-		return (-1);
+static char	*read_and_save(int fd, char *save)
+{
+	char	*buff;
+	int		file_read;
+
+	file_read = 1;
 	buff = malloc(sizeof(char) * (BUFF_SIZE + 1));
 	if (!buff)
-		return (-1);
-	while (!ft_strchr(save[fd], '\n') && reading != 0)
+		return (0);
+	while (!ft_strchr(save, '\n') && file_read != 0)
 	{
-		reading = read(fd, buff, BUFF_SIZE);
-		if (reading == -1)
+		file_read = read(fd, buff, BUFF_SIZE);
+		if (file_read == -1)
 		{
 			free(buff);
-			return (-1);
+			return (0);
 		}
-		buff[reading] = '\0';
-		save[fd] = ft_strjoin(save[fd], buff);
+		buff[file_read] = '\0';
+		save = ft_strjoin(save, buff);
 	}
 	free(buff);
+	return (save);
+}
+
+int	get_next_line(const int fd, char **line)
+{
+	static char	*save[MAX_FD];
+
+	if (fd < 0 || !line || BUFF_SIZE <= 0 || fd >= MAX_FD)
+		return (-1);
+	save[fd] = read_and_save(fd, save[fd]);
+	if (!save[fd])
+		return (-1);
 	if (ft_strlen(save[fd]) > 0)
 	{
 		*line = get_line(save[fd]);
