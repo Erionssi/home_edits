@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:38:19 by jturunen          #+#    #+#             */
-/*   Updated: 2021/11/29 15:54:22 by jturunen         ###   ########.fr       */
+/*   Updated: 2022/01/25 15:06:36 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 int		ft_strequ(const char *s1, const char *s2);
 int		ft_strnequ(const char *s1, const char *s2, size_t n);
 char	*ft_strsub(const char *s, unsigned int start, size_t len);
-char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strtrim(const char *s);
 char	**ft_strsplit(const char *s, char c);
 char	*ft_itoa(int n);

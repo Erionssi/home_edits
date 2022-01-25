@@ -6,18 +6,23 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 11:17:15 by jturunen          #+#    #+#             */
-/*   Updated: 2021/11/19 11:30:41 by jturunen         ###   ########.fr       */
+/*   Updated: 2022/01/25 15:05:51 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*fresh;
 	size_t	len_sum;
 	size_t	i;
 
+	if (!s1)
+	{
+		s1 = (char *)malloc(sizeof(char) * 1);
+		s1[0] = '\0';
+	}
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
 	len_sum = (ft_strlen(s1) + ft_strlen(s2));
