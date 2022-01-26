@@ -6,11 +6,11 @@
 #    By: tpolonen <tpolonen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/17 14:27:14 by tpolonen          #+#    #+#              #
-#    Updated: 2022/01/20 11:57:36 by jturunen         ###   ########.fr        #
+#    Updated: 2022/01/26 14:26:50 by jturunen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EVAL = ~/repos/home_edits/get_next_line/
+EVAL = ~/repos/home_repos/get_next_line/
 
 all:
 	make -C $(EVAL)libft/ fclean && make -C $(EVAL)libft/

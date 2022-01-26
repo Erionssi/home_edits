@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 11:17:15 by jturunen          #+#    #+#             */
-/*   Updated: 2022/01/25 15:05:51 by jturunen         ###   ########.fr       */
+/*   Updated: 2022/01/26 12:48:40 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*fresh;
-	size_t	len_sum;
 	size_t	i;
+	size_t	c;
+	char	*str;
 
 	if (!s1)
 	{
-		s1 = (char *)malloc(sizeof(char) * 1);
+		s1 = (char *)malloc(1 * sizeof(char));
 		s1[0] = '\0';
 	}
-	if (s1 == NULL || s2 == NULL)
+	if (!s1 || !s2)
 		return (NULL);
-	len_sum = (ft_strlen(s1) + ft_strlen(s2));
-	fresh = ft_strnew(len_sum);
-	if (!fresh)
+	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (str == NULL)
 		return (NULL);
-	i = 0;
-	while (*s1 != '\0')
-		fresh[i++] = *s1++;
-	while (*s2 != '\0')
-		fresh[i++] = *s2++;
-	fresh[i] = '\0';
-	return (fresh);
+	i = -1;
+	c = 0;
+	if (s1)
+		while (s1[++i] != '\0')
+			str[i] = s1[i];
+	while (s2[c] != '\0')
+		str[i++] = s2[c++];
+	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	free(s1);
+	return (str);
 }
