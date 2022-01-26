@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:44:04 by jturunen          #+#    #+#             */
-/*   Updated: 2022/01/26 15:09:29 by jturunen         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:42:14 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static char	*read_and_save(int fd, char *save)
 {
 	char		*buff;
 	long int	file_read;
+	char		*tmp;
 
 	file_read = 1;
 	buff = malloc(sizeof(char) * (BUFF_SIZE + 1));
@@ -82,7 +83,9 @@ static char	*read_and_save(int fd, char *save)
 			return (0);
 		}
 		buff[file_read] = '\0';
+		tmp = save;
 		save = ft_strjoin(save, buff);
+		free(tmp);
 	}
 	free(buff);
 	return (save);
