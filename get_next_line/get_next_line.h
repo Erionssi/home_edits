@@ -6,7 +6,7 @@
 /*   By: jturunen <jturunen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:44:20 by jturunen          #+#    #+#             */
-/*   Updated: 2022/01/25 17:30:16 by jturunen         ###   ########.fr       */
+/*   Updated: 2022/04/06 10:58:24 by jturunen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define BUFF_SIZE 8
+# define BUFF_SIZE 32
 # define MAX_FD 4096
 
 int		get_next_line(const int fd, char **line);
