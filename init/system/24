@@ -1,0 +1,4 @@
+# i mean.. the subject says ALL packages, so "sudo apt list"
+# but i bet it actually wants all the installed packages..
+# ofc you can grep this however you want etc..
+echo "sudo apt list --installed"

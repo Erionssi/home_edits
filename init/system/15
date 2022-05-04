@@ -1,0 +1,7 @@
+# there are multiple ways of doing this but maybe the easiest is to use pkill
+# to send a kill signal to the process.
+# pkill to kill with a process name,
+# kill to kill with process ID, PID. "kill -9 PID"
+# you can find both of these with "jobs -l"
+# -9 is the signal for SIGKILL as in terminating the process
+echo "pkill -9 PROCESS_NAME"

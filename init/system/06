@@ -2,5 +2,5 @@
 # called sshd or ssh, but ssh should be sufficient but in some cases you have to
 # call it by sshd
 # you could also do
-# sudo service ssh stop/start
+# sudo service ssh restart
 echo "sudo systemctl restart ssh"

@@ -1,0 +1,4 @@
+# /etc/passwd contains ALL existing users, even the non-available accounts.
+# if the ending has /sbin/nologin it means it's disabled and cant be used
+# to connect via ssh
+echo "cat /etc/passwd"

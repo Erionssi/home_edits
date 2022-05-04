@@ -1,0 +1,31 @@
+# first create a new user using "sudo adduser USERNAME"
+# type in password x2, fill in the information that you want
+# answer Y when asked if info is correct
+# if needed, add it to sudo group "sudo usermod -aG sudo USERNAME"
+# if you want to be able to use sudo
+# if you want to use the login in your current terminal, use "exit" command to
+# log out of the current user, double if you were using root
+# open a terminal / VM Graphic / VM Console
+# for ssh login use the exercise 17 answer "ssh -p PORT username@ip_address"
+# for VM graphic/console session just login as normally with the new user info
+#
+# in GNOME graphics version creating user is done at
+# settings -> details -> users, unlock, press add user
+#
+# SMALL REMINDER, if you have killed the ssh service, you have to restart it,
+# before you can login trough ssh again
+echo "sudo adduser MasterBlaster"
+echo "PassWordM4\$73R"
+echo "PassWordM4\$73R"
+echo "Master the Blaster"
+echo "42"
+echo "1-800-42-42"
+echo "1-800-42-home"
+echo "42@hive"
+echo "Y"
+echo "sudo systemctl status ssh"
+echo "sudo systemctl start ssh"
+echo "exit"
+echo "ssh -p 3022 MasterBlaster@127.0.0.1"
+echo "PassWordM4\$73R"
+echo "MasterBlaster@debian:~$ "

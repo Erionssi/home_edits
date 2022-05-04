@@ -1,0 +1,4 @@
+# i use this to bypass the lagginess of VirtualBox at school
+# for me its "ssh -p 3022 hive@127.0.0.1" because i'v created
+# user "hive" to the VM debian and it works in 127.0.0.1
+echo "ssh -p PORT username@ip_of_your_VM"

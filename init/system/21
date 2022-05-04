@@ -1,0 +1,5 @@
+# in this it depends what we mean ast real users?
+# users that can login? "cat /etc/passwd | egrep "root|home"" should suffice
+# all non-disabled ones? such as sync? "cat /etc/passwd | grep -v nologin"
+# all human users? that are not root? "cat /etc/passwd | grep home"
+echo "cat /etc/passwd | grep home"

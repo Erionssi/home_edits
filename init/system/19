@@ -1,0 +1,4 @@
+# the following comand is pretty self explaanatory i think..
+# this will show all stuff that has been enabled at boot
+# if you leave out the state part then you shall see all disabled ones also
+echo "sudo systemctl list-unit-files --type=service --state=enabled --all"

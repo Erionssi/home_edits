@@ -1,0 +1,4 @@
+# to run something in background you just add &
+# you can check bg programs with "jobs" comand and bring certain bg process
+# to "foreground" with fg command
+echo "sudo tail -f /var/log/syslog &"

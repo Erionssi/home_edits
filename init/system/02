@@ -5,6 +5,7 @@
 # su -
 # apt update
 # apt install sudo
+# at this point you could create user by doing "adduser USERNAME"
 # usermod -aG sudo USERNAME to add it to the group
 # exit && exit to exit root access and logout from your user (you have to relog
 # for the group change to take effect)

@@ -1,0 +1,3 @@
+# cron service is you use to run scheduled tasks
+# check if its running by "systemctl status cron"
+echo "cron is the answer"

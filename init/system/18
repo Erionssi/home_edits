@@ -1,0 +1,4 @@
+# either systemctl or service works fine just like in 06
+# sudo service ssh stop
+# only the order changes
+echo "sudo systemctl stop ssh"

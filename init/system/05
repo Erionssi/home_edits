@@ -1,3 +1,3 @@
-# you can run the command without sudo/root access but you wont see the "logs"
-# debending on your system it can be called ssh or sshd
+# you can run systemctl without sudo/root access but you wont see the "logs"
+# you can also use "sudo service ssh status"
 echo "sudo systemctl status ssh"

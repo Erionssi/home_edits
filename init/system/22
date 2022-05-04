@@ -1,0 +1,2 @@
+# this adds an user, keep in mind that you sill have to manage user groups etc
+echo "sudo adduser USERNAME"
