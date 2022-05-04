@@ -1,0 +1,4 @@
+# nslookup who.int shows our dns servers address and the ip address of the
+# domain, then we grep it to show only the line that has who.int in it and the
+# next line
+nslookup who.int | grep "who.int" -A 1

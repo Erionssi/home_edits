@@ -1,0 +1,4 @@
+# ifconfig -l Lists all device names without additional information
+# to show only interfaces that are up add -u, for down -d
+# networksetup -listallhardwareports | grep "Device" lists all hardware ports
+ifconfig -l

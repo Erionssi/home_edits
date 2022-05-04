@@ -1,0 +1,3 @@
+# i quess this asks for traceroute, it gives ip addresses of the devices that
+# the connection has to hop trough
+traceroute who.int

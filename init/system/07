@@ -1,0 +1,4 @@
+# ps aux shows process information of all processes and their users
+# we egrep it to get the information line so ou know what is the PID number
+# head -2 it so we dont get too much information like egrep process inffo
+ps aux | egrep 'PID|ssh' | head -2

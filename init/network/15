@@ -1,0 +1,5 @@
+# you can do a simple echo addition to the hosts file,
+# unfortunately we have no sudo rights to the hosts file so this is in theory
+# only, sudo vim /private/etc/hosts and add "46.19.122.85 intra.42.fr"
+# into the hosts file
+echo "sudo vim /private/etc/hosts and add 46.19.122.85 intra42.fr line there"

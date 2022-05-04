@@ -1,0 +1,8 @@
+# NAT is what handles our connecction to the outside world, so it translates
+# the trafic coming and going trough it so even if there are multiple computers
+# in the same network (like our school networks) we are handled as separate
+# clients to web domains etc.
+# in our network NAT is named simply nat
+# in most cases the second adress that is working in some level of our subnet
+# is the Network Address Translator
+traceroute who.int | grep "nat"

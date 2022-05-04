@@ -1,0 +1,17 @@
+# from this point on i expect you to have sudo package installed in your
+# debian, and that your user is added to the sudo group of that system
+# so you can use sudo command.
+# WHOLE PROCESS FOR THIS IS:
+# su -
+# apt update
+# apt install sudo
+# usermod -aG sudo USERNAME to add it to the group
+# exit && exit to exit root access and logout from your user (you have to relog
+# for the group change to take effect)
+# now you should have acces to sudo command with your USERNAME
+# other way of doing these exercises is to activate root access and do all the
+# commands without sudo.
+#
+# hostname does what you ask but its temporary as we dont change any files to
+# reflect the change, so it is in affect only untill boot
+echo "sudo hostname USERNAME"

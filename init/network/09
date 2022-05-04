@@ -1,0 +1,7 @@
+# so i quess this has been hard to do from .fr network, because it uses the same
+# networks dns? but for us we can ping, dig, host, nslookup or what ever and get
+# the right answer i think.. Anyways my aproach would be to use dig with short
+# and use googles dns to make sure its outside of the network.
+# answer at the moment of making this exercise is 163.172.250.16
+# dig +short 42.fr @8.8.8.8
+echo $(dig +short 42.fr @8.8.8.8)

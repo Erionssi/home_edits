@@ -1,0 +1,5 @@
+# df can be used to show disk space information,
+# flag -h is power of 1024 bytes, where -H is power of 1000
+# users and operating systems operate in the field of 1024 but manufacturers
+# usually inform in the power of 1000
+echo "df -h"

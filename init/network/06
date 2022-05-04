@@ -1,0 +1,10 @@
+# answer is /var/run/resolv.conf
+# /etc/resolv.conf has a symbolic link to /var/run/resolv.conf that contains
+# the IP address of the DNS server we are using.
+# So the answer is: /var/run/resolv.conf
+#
+# you can also get the information by running the following command.
+# to be clear you could just nslookup or dig any domain and see your dns address
+# scutil --dns is described in the file above so it could be used also.
+# scutil --dns | grep "resolver #1" -A 2 | head -3
+echo /var/run/resolv.conf

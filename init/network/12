@@ -1,0 +1,9 @@
+# theres quite handy way of looking all your addresses
+# ipcofig getpacket interfacename (we know en0 is our ethernet connection)
+# where en1 was our Wi-Fi
+# server_indentifier (ip) = your DHCP server's IP address
+# yiaddr = Your IP address
+# siaddr = Server Address
+# giaddr = gateway IP address
+# chaddr = Hardware Address
+ipconfig getpacket en0 | grep "yiaddr" | cut -d " " -f 3

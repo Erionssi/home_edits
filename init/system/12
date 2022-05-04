@@ -1,0 +1,7 @@
+# as i understand you want to see folders inside the /var/ so we use wilcard
+# sudo so you wont have problems reading the size of folders you dont have
+# permissions for
+# -s to show total size
+# -h to show power of 1024 bytes
+# -c to show summary of total size
+echo "sudo du -shc /var/*"

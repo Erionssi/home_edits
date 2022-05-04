@@ -1,0 +1,5 @@
+# answer is /private/etc/hosts, i deduct this by knowing this in advance
+# for real tho, google is your friend, this is how you determine most file
+# locations. something that most dont realise is that /etc/ is symlinked to
+# /private/etc/
+echo /private/etc/hosts

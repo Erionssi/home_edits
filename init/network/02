@@ -1,0 +1,20 @@
+# here we have 2 commands, because if you want to do both A and B, you need both
+#
+# ifconfig en0 is the interface were looking at, 
+# grep shows only lines that have broadcast address
+# cut delimits by space and shows second and sixth field, 
+# they are the inet and broadcast addresses
+# if you want a bigger list of your network and what addresses are under
+# the samesubnet mask, you could ping your subnet like in the second command
+#
+# ping -c 2 will ping the address 2 times (needed for pinging the whole subnet), 
+# grep lines that have time in them, 
+# cut everything out except 4th field, 
+# remove dublicates with awk because you pinged twice, 
+# sort the list and remove the trailing ":" with sed.
+#
+# a)
+# ifconfig en0 | grep "broadcast" | cut -d " " -f 2,6
+# b)
+# ping -c 2 10.11.255.255 | grep "time" | cut -d " " -f 4 | awk '!a[$0]++' | sort | sed 's/://'
+ping -c 2 $(ifconfig en0 | grep "broadcast" | cut -d " " -f 6) | grep "time" | cut -d " " -f 4 | awk '!a[$0]++' | sort | sed 's/://'

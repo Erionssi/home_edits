@@ -1,0 +1,2 @@
+# who command is good for this, use flag -b to see the last system boot
+who -b

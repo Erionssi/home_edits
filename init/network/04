@@ -1,0 +1,5 @@
+# netstat -nr to show the routing tables,
+# grep it by default,
+# awk to take the first line and print the second field
+# because netstat shows also the ipv6 address that we dont want
+netstat -nr | grep "default" | awk 'NR==1{print $2}'

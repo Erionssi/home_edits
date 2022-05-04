@@ -1,0 +1,3 @@
+# host $(ipconfig getpacket en0 | grep "yiaddr" | cut -d " " -f 3)
+# 13.6.11.10.in-addr.arpa domain name pointer c1r6p13.hive.fi.
+echo $(host $(ipconfig getpacket en0 | grep "yiaddr" | cut -d " " -f 3))

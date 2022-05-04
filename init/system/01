@@ -1,0 +1,3 @@
+# you can either use a command "lsb_release -a" to check your debian version
+# or you can check the file /etc/debian_version, my VM Debian version is 11.3
+echo "cat /etc/debian_version"

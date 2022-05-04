@@ -1,0 +1,2 @@
+# command is w, simply "w" or who.
+echo "w"

@@ -1,0 +1,4 @@
+# command lists all hardware ports, then we jsut grep the wifi part,
+# then the next 2 lines with -A 2, grep that for the address line,
+# cut it with delimiter and show the 3rd field wich is the mac address
+networksetup -listallhardwareports | grep "Wi-Fi" -A 2 | grep Address | cut -d " " -f 3

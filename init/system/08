@@ -1,0 +1,2 @@
+# ~/.ssh/authorized_key, it's user specific, who can connect to that user.
+echo "~/.ssh/authorized_key"

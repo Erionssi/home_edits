@@ -1,0 +1,5 @@
+# you could use dig, nslookup or host to get this information, we use host
+# this is because host also shows what address handles the mail and i like that
+# dig @8.8.8.8 who.int is bit messy so we dont like it in this case
+# nslookup who.int 8.8.8.8 we have basically already used in a way
+host who.int 8.8.8.8
