@@ -1,0 +1,48 @@
+#!/bin/sh
+
+echo "H E L L O"
+echo "Initializing INIT evaluator 9000 v1.0..."
+sleep 1
+echo "..."
+sleep 0.75
+echo "..."
+sleep 0.5
+echo "R E A D Y  TO  S E R V E"
+while []
+do
+echo "\n----------------------------------\n"
+echo "Which of the folders would you like to run?"
+echo "Press '1' Network (NOTE: This must be executed at school Mac's)"
+echo "Press '2' System (NOTE: These are designed to run at VM Debian enviorment)"
+echo "Press '3' Scripts (NOTE: These are designed to run at VM Debian enviorment)"
+echo "\n\n\n"
+echo "Press '0' to exit"
+read option
+	if [ $option == '1' ]; then
+		echo "Decide on the exercise number, 1 - 15"
+		echo "Press '0' for exit"
+		while read network
+		do
+			if ((network >= 1 && network <= 15)); then
+				if [ $network == 0 ]; then
+					break
+				elif [ $network == 1 ]; then
+					echo "1. Get the list of the network interfaces of the machine without displaying any detail for these interfaces. Only the list of names."
+					sh ../network/01
+					continue
+				elif [ $network == 2 ]; then
+				sh ../network/02
+				else
+					break
+				fi
+				break
+			else
+				echo "Please, type a number between 1 - 15"
+				continue
+			fi
+		done
+		break
+	else
+		continue
+	fi
+done
