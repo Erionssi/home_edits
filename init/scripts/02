@@ -1,0 +1,62 @@
+#!/bin/sh
+# kill all processes of the user (this also logs out the user)
+# sudo pkill -9 -u $user
+# just delete the user but dont remove the folders
+# sudo userdel $user
+# delete user and its folders
+# sudo userdel -r $user
+echo "Delete user in debian by jturunen v1.0"
+echo "Choose an option"
+echo "1. Simply delete the user"
+echo "2. Kill user's processes and delete the user"
+echo "3. Exit the script"
+while read -p "1-3 " option
+do
+	if [ $option == '1' ]; then
+		read -p "Name the user you want to delete? " user
+		while read -p "Do you want to also delete user folders? y/n " folder
+		do
+			if [ $folder == 'y' ]; then
+				echo "Deleting user $user and it's folders.."
+				sudo deluser --remove-home $user
+				break
+			elif [ $folder == 'n' ]; then
+				echo "Deleting user $user ..."
+				sudo deluser $user
+				break
+			else
+				echo "Please type only 'y' or 'n'"
+				continue
+			fi
+		done
+		break
+	elif [ $option == '2' ]; then
+		read -p "Name the user you want to delete? " user
+		while read -p "Do you want to also delete user folders? y/n " folder
+		do
+			if [ $folder == 'y' ]; then
+				echo "Killing $user processes.."
+				sudo pkill -9 -u $user
+				echo "Deleting $user and it's folders.."
+				sudo deluser --remove-home $user
+				break
+			elif [ $folder == 'n' ]; then
+				echo "Killing $user processes.."
+				sudo pkill -9 -u $user
+				echo "Deleting $user ..."
+				sudo deluser $user
+				break
+			else
+				echo "Please type only 'y' or 'n'"
+				continue
+			fi
+		done
+		break
+	elif [ $option == '3' ]; then
+		echo "I know, it's scary to destroy information, go have a cookie."
+		break
+	else
+		echo "Please, type the desired option, 1, 2 or 3."
+		continue
+	fi
+done
