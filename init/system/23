@@ -9,6 +9,10 @@
 # for ssh login use the exercise 17 answer "ssh -p PORT username@ip_address"
 # for VM graphic/console session just login as normally with the new user info
 #
+# you can also just 
+# su USERNAME
+# after you have created the new user
+#
 # in GNOME graphics version creating user is done at
 # settings -> details -> users, unlock, press add user
 #

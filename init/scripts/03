@@ -4,6 +4,7 @@ start_option='4'
 run='2'
 folder='HIVE'
 file='42'
+number_check='^[0-9]+$'
 
 #### COLORS USED:
 COL_R="\e[1;31m"
@@ -16,21 +17,26 @@ COL_D="\e[0m"
 
 run_it()
 {
-	while [ run != 'n' ]
+	yesno_check='[Yn]'
+	run='2'
+	while [ $run -ne 0 ]
 	do
 		printf "${COL_Y}\n\nDo you want to run it with sh command?\n"
 		printf "${COL_R}WARNING: make sure there are no malicious "
 		printf "intent in the file.\n"
 		printf "\nY/n\n${COL_D}"
+		run='2'
 		read run
-		if [ $run = 'Y' ]; then
+		if [ "$run" = "Y" ]; then
 			sh ../$folder/$file
-			break
-		elif [ $run = 'n' ]; then
-		   break
-		else
-	 		printf "\nPlease type Y or n\n"
-			continue
+			run='0'
+		elif [ "$run" = "n" ]; then
+			clear
+			run='0'
+		elif ! [[ "$run" =~ $yesno_check ]]; then
+			clear
+			printf "${COL_R}Please, write Y or n\n${COL_D}"
+			run='2'
 		fi
 	done
 }
@@ -38,138 +44,123 @@ run_it()
 network_check()
 {
 	folder='network'
-	option='42'
-	while [ $option != 0 ]
+	option='16'
+	network_check='^([0-9]|1[0-5])$'
+	while [ $option -ne 0 ]
 	do
-	printf "\n------\n"
-	printf "Decide on the exercise number, 1 - 15\n"
-	printf "Press '0' to go back\n"
+		printf "${COL_C}NETWORK TESTS"
+		printf "${COL_W}\n------\n\n"
+		printf "Decide on the exercise number, 1 - 15\n"
+		printf "Press '0' to go back\n${COL_D}"
+		option='16'
 		read option
-		if [ $option == 0 ]; then
+		if ! [[ $option =~ $network_check ]]; then
 			clear
-			break
+			printf "${COL_R}Please, write a correct exercise number between 1 - 15\n${COL_D}"
+			option='16'
 		elif [ $option == 1 ]; then
 			file='01'
 			clear
-			printf "1. Get the list of the network interfaces of the machine "
+			printf "${COL_Y}1. Get the list of the network interfaces of the machine "
 			printf "without displaying any detail for these interfaces." 
-			printf "Only the list of names.\n\n"
+			printf "Only the list of names.\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 2 ]; then
 			file='02'
 			clear
-			printf "2. Identify and display the Ethernet interface "
+			printf "${COL_Y}2. Identify and display the Ethernet interface "
 			printf "characteristics:\n"
 			printf "(a) Identify broadcast address\n"
 			printf "(b) Identify all IP adresses which are part of "
-			printf "the same subnet\n\n"
+			printf "the same subnet\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 3 ]; then
 			file='03'
 			clear
-			printf "3. Identify the MAC address of the Wi-Fi card\n\n"
+			printf "${COL_Y}3. Identify the MAC address of the Wi-Fi card\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 4 ]; then
 			file='04'
 			clear
-			printf "4. Identifiy the default gateway in the routing table\n\n"
+			printf "${COL_Y}4. Identifiy the default gateway in the routing table\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 5 ]; then
 			file='05'
 			clear
-			printf "5. Identify the IP address of the DNS that responds "
-			printf "to the following url: who.int\n\n"
+			printf "${COL_Y}5. Identify the IP address of the DNS that responds "
+			printf "to the following url: who.int\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 6 ]; then
 			file='06'
 			clear
-			printf "6. Get the complete path of the file that contains the "
-			printf "IP address of the DNS server you’re using\n\n"
+			printf "${COL_Y}6. Get the complete path of the file that contains the "
+			printf "IP address of the DNS server you’re using\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 7 ]; then
 			file='07'
 			clear
-			printf "7. Query an external DNS server on the who.int domain "
-			printf "name (ie.: google 8.8.8.8)\n\n"
+			printf "${COL_Y}7. Query an external DNS server on the who.int domain "
+			printf "name (ie.: google 8.8.8.8)\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 8 ]; then
 			file='08'
 			clear
-			printf "8. Find the provider of who.int\n\n"
+			printf "${COL_Y}8. Find the provider of who.int\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 9 ]; then
 			file='09'
 			clear
-			printf "9. Find the external IP of 42.fr\n\n"
+			printf "${COL_Y}9. Find the external IP of 42.fr\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 10 ]; then
 			file='10'
 			clear
-			printf "10. Identify the network devices between your computer and "
-			printf "the who.int domain\n\n"
+			printf "${COL_Y}10. Identify the network devices between your computer and "
+			printf "the who.int domain\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 11 ]; then
 			file='11'
 			clear
-			printf "11. Use the output of the previous command to find the "
+			printf "${COL_Y}11. Use the output of the previous command to find the "
 			printf "name and IP address of the device that makes the link "
-			printf "between you (local network) and the outside world\n\n"
+			printf "between you (local network) and the outside world\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 12 ]; then
 			file='12'
 			clear
-			printf "12. Find the IP that was assigned to you by dhcp server\n\n"
+			printf "${COL_Y}12. Find the IP that was assigned to you by dhcp server\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 13 ]; then
 			file='13'
 			clear
-			printf "13. Thanks to the previous question and the reverse DNS "
-			printf "find the name of your host\n\n"
+			printf "${COL_Y}13. Thanks to the previous question and the reverse DNS "
+			printf "find the name of your host\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 14 ]; then
 			file='14'
 			clear
-			printf "14. What file contains the local DNS entries?\n\n"
+			printf "${COL_Y}14. What file contains the local DNS entries?\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 15 ]; then
 			file='15'
 			clear
-			printf "15. Make the intra.42.fr address reroute to 46.19.122.85\n\n"
+			printf "${COL_Y}15. Make the intra.42.fr address reroute to 46.19.122.85\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
-		else
-			clear
-			printf "Please, write a correct exercise number between 1 - 15\n"
-			continue
 		fi
 	done
 }
@@ -178,203 +169,179 @@ system_check()
 {
 	folder='system'
 	option='42'
-	while [ $option != 0 ]
+	system_check='^([0-9]|1[0-9]|2[0-4])$'
+	while [ $option -ne 0 ]
 	do
-	printf "\n------\n"
-	printf "Decide on the exercise number, 1 - 24\n"
-	printf "Press '0' to go back\n"
+		printf "${COL_C}SYSTEM TESTS"
+		printf "${COL_W}\n------\n\n"
+		printf "Decide on the exercise number, 1 - 24\n"
+		printf "Press '0' to go back\n${COL_D}"
+		option='42'
 		read option
-		if [ $option == 0 ]; then
+		if ! [[ $option =~ $system_check ]]; then
 			clear
-			break
+			printf "${COL_R}Please, write a correct exercise number between 1 - 24\n${COL_D}"
+			option='42'
 		elif [ $option == 1 ]; then
 			file='01'
 			clear
-			printf "1. In what file can you find the installed version of "
-			printf "your Debian?\n\n"
+			printf "${COL_Y}1. In what file can you find the installed version of "
+			printf "your Debian?\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 2 ]; then
 			file='02'
 			clear
-			printf "2. What command can you use to rename your system?\n\n"
+			printf "${COL_Y}2. What command can you use to rename your system?\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 3 ]; then
 			file='03'
 			clear
-			printf "3. What file has to be modified to make it permanent?\n\n"
+			printf "${COL_Y}3. What file has to be modified to make it permanent?\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 4 ]; then
 			file='04'
 			clear
-			printf "4. What command gives you the time since your system "
-			printf "was last booted?\n\n"
+			printf "${COL_Y}4. What command gives you the time since your system "
+			printf "was last booted?\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 5 ]; then
 			file='05'
 			clear
-			printf "5. Name the command that determines the state of the "
-			printf "SSH service.\n\n"
+			printf "${COL_Y}5. Name the command that determines the state of the "
+			printf "SSH service.\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 6 ]; then
 			file='06'
 			clear
-			printf "6. Name the command that reboots the SSH service.\n\n"
+			printf "${COL_Y}6. Name the command that reboots the SSH service.\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 7 ]; then
 			file='07'
 			clear
-			printf "7. Figure out the PID of the SSHD service.\n\n"
+			printf "${COL_Y}7. Figure out the PID of the SSHD service.\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 8 ]; then
 			file='08'
 			clear
-			printf "8. What file contains the RSA keys of systems that are "
-			printf "authorized to connect via SSH?\n\n"
+			printf "${COL_Y}8. What file contains the RSA keys of systems that are "
+			printf "authorized to connect via SSH?\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 9 ]; then
 			file='09'
 			clear
-			printf "9. What command lets you know who is connected to "
-			printf "the System?\n\n"
+			printf "${COL_Y}9. What command lets you know who is connected to "
+			printf "the System?\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 10 ]; then
 			file='10'
 			clear
-			printf "10. Name the command that lists the partition tables "
-			printf "of drives?\n\n"
+			printf "${COL_Y}10. Name the command that lists the partition tables "
+			printf "of drives?\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 11 ]; then
 			file='11'
 			clear
-			printf "11. Name the command that displays the available space "
+			printf "${COL_Y}11. Name the command that displays the available space "
 			printf "left and used on the system in an humanly "
-			printf "understandable way\n\n"
+			printf "understandable way\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 12 ]; then
 			file='12'
 			clear
-			printf "12. Figure out the exact size of each folder of /var in a "
-			printf "humanly understandable way followed by the path of it.\n"
+			printf "${COL_Y}12. Figure out the exact size of each folder of /var in a "
+			printf "humanly understandable way followed by the path of it.\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 13 ]; then
 			file='13'
 			clear
-			printf "13. Name the command that find, in real time, "
-			printf "currently running processes\n\n"
+			printf "${COL_Y}13. Name the command that find, in real time, "
+			printf "currently running processes\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 14 ]; then
 			file='14'
 			clear
-			printf "14. Run the ‘tail -f /var/log/syslog‘ "
-			printf "command in background\n\n"
+			printf "${COL_Y}14. Run the ‘tail -f /var/log/syslog‘ "
+			printf "command in background\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 15 ]; then
 			file='15'
 			clear
-			printf "15. Find the command that kills the background "
-			printf "command’s process\n\n"
+			printf "${COL_Y}15. Find the command that kills the background "
+			printf "command’s process\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 16 ]; then
 			file='16'
 			clear
-			printf "16. Find the service which makes it possible to run "
-			printf "specific tasks following a regular schedule\n\n"
+			printf "${COL_Y}16. Find the service which makes it possible to run "
+			printf "specific tasks following a regular schedule\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 17 ]; then
 			file='17'
 			clear
-			printf "17. Find the command that allows you to connect via ssh on "
-			printf "the VM. (In parallel with the graphic session)\n\n"
+			printf "${COL_Y}17. Find the command that allows you to connect via ssh on "
+			printf "the VM. (In parallel with the graphic session)\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 18 ]; then
 			file='18'
 			clear
-			printf "18. Find the command that kills ssh service\n\n"
+			printf "${COL_Y}18. Find the command that kills ssh service\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 19 ]; then
 			file='19'
 			clear
-			printf "19. List all services which are started at boot time and "
-			printf "name this kind of services\n\n"
+			printf "${COL_Y}19. List all services which are started at boot time and "
+			printf "name this kind of services\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 20 ]; then
 			file='20'
 			clear
-			printf "20. List all existing users on the VM\n\n"
+			printf "${COL_Y}20. List all existing users on the VM\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 21 ]; then
 			file='21'
 			clear
-			printf "21. List all real users on the VM\n\n"
+			printf "${COL_Y}21. List all real users on the VM\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 22 ]; then
 			file='22'
 			clear
-			printf "22. Find the command that add a new local user\n\n"
+			printf "${COL_Y}22. Find the command that add a new local user\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 23 ]; then
 			file='23'
 			clear
-			printf "23. Explain how connect yourself as new user. (With graphic"
-			printf " session and ssh session)\n\n"
+			printf "${COL_Y}23. Explain how connect yourself as new user. (With graphic"
+			printf " session and ssh session)\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 24 ]; then
 			file='24'
 			clear
-			printf "24. Find the command that list all packages\n\n"
+			printf "${COL_Y}24. Find the command that list all packages\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
-		else
-			clear
-			printf "Please, write a correct exercise number between 1 - 24\n"
-			continue
 		fi
 	done
 }
@@ -383,89 +350,88 @@ scripts_check()
 {
 	folder='scripts'
 	option='42'
-	while [ $option != 0 ]
+	script_check='^([0-3])$'
+	while [ $option -ne 0 ]
 	do
-	printf "\n------\n"
-	printf "Decide on the exercise number, 1 - 3\n"
-	printf "Press '0' to go back\n"
+		printf "${COL_C}SCRIPT TESTS"
+		printf "${COL_W}\n------\n\n"
+		printf "Decide on the exercise number, 1 - 3\n"
+		printf "Press '0' to go back\n${COL_D}"
+		option='42'
 		read option
-		if [ $option == 0 ]; then
+		if ! [[ $option =~ $script_check ]]; then
 			clear
-			break
+			printf "${COL_R}Please, write a correct exercise number between 1 - 3\n${COL_D}"
+			option='42'
 		elif [ $option == 1 ]; then
 			file='01'
 			clear
-			printf "1. Write a script which displays only the login, UID and "
-			printf "Path of each entry of the /etc/passwd file.\n\n"
+			printf "${COL_Y}1. Write a script which displays only the login, UID and "
+			printf "Path of each entry of the /etc/passwd file.\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 2 ]; then
 			file='02'
 			clear
-			printf "2. Write a script which delete an ACTIVE user on the VM.\n\n"
+			printf "${COL_Y}2. Write a script which delete an ACTIVE user on the VM.\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
 		elif [ $option == 3 ]; then
 			file='03'
 			clear
-			printf "3. Three’s a Charm. Write a script of you choice.\n\n"
+			printf "${COL_Y}3. Three’s a Charm. Write a script of you choice.\n\n${COL_D}"
 			cat ../$folder/$file
 			run_it
-			continue
-		else
-			clear
-			printf "Please, write a correct exercise number between 1 - 3\n"
-			continue
 		fi
 	done
 }
 
 clear
 printf "${COL_C}H E L L O${COL_D}\n"
-printf "Initializing INIT evaluator 9000 v1.0...\n"
+printf "${COL_W}Initializing INIT evaluator 9000 v1.0...\n"
 sleep 0.75
 printf "...\n"
 sleep 0.75
 printf "...\n"
 sleep 0.5
-while [ $start_option != 0 ]
+
+start_option='4'
+start_check='^([0-3])$'
+while [ $start_option -ne 0 ]
 do
-printf "${COL_Y}\nR E A D Y  TO  S E R V E\n${COL_D}"
-printf "\n----------------------------------\n"
-printf "Which of the folders would you like to look at?\n"
-printf "Press ${COL_Y}'${COL_D}1${COL_Y}'${COL_D} Network (NOTE: "
-printf "This must be executed at school Mac's)\n"
-printf "Press ${COL_Y}'${COL_D}2${COL_Y}'${COL_D} System (NOTE: "
-printf "These are designed to run at VM Debian "
-printf "enviorment)\n"
-printf "Press ${COL_Y}'${COL_D}3${COL_Y}'${COL_D} Scripts (NOTE: "
-printf "These are designed to run at VM Debian enviorment)\n"
-printf "\n"
-printf "Press ${COL_Y}'${COL_D}0${COL_Y}'${COL_D} to exit\n"
-printf "${COL_Y}NOTICE: Initially, this program only run's files with "
-printf "${COL_G}cat${COL_Y} command.\n"
-printf "Then it will ask if you want to ${COL_G}sh${COL_Y} execute it. "
-printf "${COL_R}USE THIS WITH CAUTION!${COL_D}\n"
-read start_option
-	if [ $start_option == '1' ]; then
-		network_check
-		printf "\n"
-		continue
-	elif [ $start_option == '2' ]; then
-		system_check
-		printf "\n"
-		continue
-	elif [ $start_option == '3' ]; then
-		scripts_check
-		printf "\n"
-		continue
-	elif [ $start_option == '0' ]; then
-		break
-	else
+	clear
+	printf "${COL_C}\nR E A D Y  TO  S E R V E\n${COL_D}"
+	printf "${COL_W}\n----------------------------------\n"
+	printf "Which of the folders would you like to look at?\n"
+	printf "Press ${COL_Y}'${COL_D}1${COL_Y}'${COL_W} Network (NOTE: "
+	printf "This must be executed at school Mac's)\n"
+	printf "Press ${COL_Y}'${COL_D}2${COL_Y}'${COL_W} System (NOTE: "
+	printf "These are designed to run at VM Debian "
+	printf "environment)\n"
+	printf "Press ${COL_Y}'${COL_D}3${COL_Y}'${COL_W} Scripts (NOTE: "
+	printf "These are designed to run at VM Debian environment)\n"
+	printf "\n"
+	printf "Press ${COL_Y}'${COL_D}0${COL_Y}'${COL_W} to exit\n"
+	printf "${COL_Y}NOTICE: Initially, this program only run's files with "
+	printf "${COL_G}cat${COL_Y} command.\n"
+	printf "Then it will ask if you want to ${COL_G}sh${COL_Y} execute it. "
+	printf "${COL_R}USE THIS WITH CAUTION!${COL_D}\n"
+	read start_option
+	if ! [[ $start_option =~ $start_check ]]; then
 		clear
 		printf "${COL_R}Please press a valid number\n${COL_D}"
-		continue
+		start_option='4'
+	elif [ $start_option -eq '1' ]; then
+		clear
+		network_check
+		printf "\n"
+	elif [ $start_option -eq '2' ]; then
+		clear
+		system_check
+		printf "\n"
+	elif [ $start_option -eq '3' ]; then
+		clear
+		scripts_check
+		printf "\n"
 	fi
 done

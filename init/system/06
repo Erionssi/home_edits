@@ -1,6 +1,4 @@
-# so debending how your service has been installed your ssh service can be
-# called sshd or ssh, but ssh should be sufficient but in some cases you have to
-# call it by sshd
+# systemctl lets you do almost everything service related
 # you could also do
 # sudo service ssh restart
 echo "sudo systemctl restart ssh"

@@ -1,6 +1,6 @@
 # two commands which show the information bit differently.
 # command lsblk is usefull and can be pretty indepth
-# for indepth you might want to use sudo fdisk
+# we use sudo fdisk
 # you can be more specific like sudo fdisk -l /dev/sda1
 # you can also "cat /proc/partitions"
 echo "sudo fdisk -l"

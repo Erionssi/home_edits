@@ -1,4 +1,4 @@
-# top is real time process display utitily
+# top is real time process display utility
 # to show only running processes you can press "o" while its running and type
 # S=R to filter only running processes to show
 echo "top"
