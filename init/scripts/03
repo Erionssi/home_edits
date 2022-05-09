@@ -22,7 +22,7 @@ run_it()
 	run='2'
 	while [ $run -ne 0 ]
 	do
-		printf "${COL_Y}\n\nDo you want to run it with bash command?\n"
+		printf "${COL_Y}\n\nDo you want to ${COL_G}execute with bash${COL_Y} the exercise?\n"
 		printf "${COL_R}WARNING: make sure there are no malicious "
 		printf "intent in the file.\n"
 		printf "\nY/n\n${COL_D}"
@@ -415,8 +415,8 @@ do
 	printf "Press ${COL_Y}'${COL_D}0${COL_Y}'${COL_W} to exit\n"
 	printf "${COL_Y}NOTICE: Initially, this program only run's files with "
 	printf "${COL_G}cat${COL_Y} command.\n"
-	printf "Then it will ask if you want to ${COL_G}bash${COL_Y} execute it. "
-	printf "${COL_R}USE THIS WITH CAUTION!${COL_D}\n"
+	printf "Then it will ask if you want to ${COL_G}execute it with bash.${COL_Y} "
+	printf "${COL_R}\nUSE THIS WITH CAUTION!\nTHIS SKIPS EXECUTION RIGHTS${COL_D}\n"
 	read start_option
 	if ! [[ $start_option =~ $start_check ]]; then
 		clear
