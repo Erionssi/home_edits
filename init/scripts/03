@@ -18,25 +18,33 @@ COL_D="\e[0m"
 
 run_it()
 {
-	yesno_check='[Yn]'
+	yesno_check='(^sh$|^bash$|^run$|^n$)'
 	run='2'
 	while [ $run -ne 0 ]
 	do
 		printf "${COL_Y}\n\nDo you want to ${COL_G}execute with bash${COL_Y} the exercise?\n"
 		printf "${COL_R}WARNING: make sure there are no malicious "
 		printf "intent in the file.\n"
-		printf "\nY/n\n${COL_D}"
+		printf "BASH and SH skip execution rights!!!\n"
+		printf "\nTYPE: \"${COL_C}run${COL_R}\" / \"${COL_C}bash${COL_R}\" / "
+		printf "\"${COL_C}sh${COL_R}\" OR \"${COL_C}n${COL_R}\" to cancell\n${COL_D}"
 		run='2'
 		read run
-		if [ "$run" = "Y" ]; then
+		if [ "$run" = "bash" ]; then
 			bash ../$folder/$file
+			run='0'
+		elif [ "$run" = "sh" ]; then
+			sh ../$folder/$file
+			run='0'
+		elif [ "$run" = "run" ]; then
+			../$folder/./$file
 			run='0'
 		elif [ "$run" = "n" ]; then
 			clear
 			run='0'
 		elif ! [[ "$run" =~ $yesno_check ]]; then
 			clear
-			printf "${COL_R}Please, write Y or n\n${COL_D}"
+			printf "${COL_R}Please, write \"run\" / \"bash\" / \"sh\" / \"n\"\n${COL_D}"
 			run='2'
 		fi
 	done
@@ -415,7 +423,8 @@ do
 	printf "Press ${COL_Y}'${COL_D}0${COL_Y}'${COL_W} to exit\n"
 	printf "${COL_Y}NOTICE: Initially, this program only run's files with "
 	printf "${COL_G}cat${COL_Y} command.\n"
-	printf "Then it will ask if you want to ${COL_G}execute it with bash.${COL_Y} "
+	printf "Then it will ask if you want to ${COL_G}run${COL_Y} / "
+	printf "${COL_G}sh${COL_Y} / ${COL_G}bash${COL_Y} it.${COL_Y} "
 	printf "${COL_R}\nUSE THIS WITH CAUTION!\nTHIS SKIPS EXECUTION RIGHTS${COL_D}\n"
 	read start_option
 	if ! [[ $start_option =~ $start_check ]]; then
