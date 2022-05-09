@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # we cat /etc/passwd like normal
 # we do everything with awk this time
 # -F value is hte delimiter that we use
@@ -10,11 +10,11 @@
 echo "Want to display only login, UID and Path of each entry of the /etc/passwd file?"
 while read -p "y/n? " answer
 do
-	if [ $answer == 'y' ]; 
+	if [ "$answer" = 'y' ]; 
 		then
 			cat /etc/passwd | awk -F ':' '!/#/ {print "\033[32m" $1, "\033[36m" $3,"\033[33m" $7}' | column -t
 			break
-	elif [ $answer == 'n' ]; 
+	elif [ "$answer" = 'n' ]; 
 		then
 			echo "Too bad, all this for NOTHING!"
 			break
